@@ -1,26 +1,28 @@
 package io.zipcoder.interfaces;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class People {
+public class People<E extends Person> implements Iterable<E> {
 
-    ArrayList<Person> personList;
+    private ArrayList<E> personList;
 
     public People() {
-        personList = new ArrayList<Person>();
+        personList = new ArrayList<E>();
     }
 
-    public People (ArrayList<Person> personList) {
+    public People (ArrayList<E> personList) {
         this.personList = personList;
     }
 
-    public void add(Person person) {
+    public void add(E person) {
         personList.add(person);
     }
 
-    public Person findById(long ID) {
-        Person belongingToId = null;
-        for (Person person: personList) {
+    public E findById(long ID) {
+        E belongingToId = null;
+        for (E person: personList) {
             if (person.getID() == ID) {
                 belongingToId = person;
             }
@@ -28,12 +30,12 @@ public class People {
         return belongingToId;
     }
 
-    public void remove(Person person) {
+    public void remove(E person) {
         personList.remove(person);
     }
 
     public void remove(long ID) {
-        for (Person person: personList) {
+        for (E person: personList) {
             if (person.getID() == ID) {
                 personList.remove(person);
             }
@@ -44,12 +46,16 @@ public class People {
         return personList.size();
     }
 
-    public Person[] getArray() {
-        Person[] result = new Person[personList.size()];
-        return personList.toArray(result);
+    public E[] getArray() {
+        Class type = personList.get(0).getClass();
+        return personList.toArray((E[])(Array.newInstance(type, personList.size())));
     }
 
     public void removeAll() {
         personList.removeAll(personList);
+    }
+
+    public Iterator<E> iterator() {
+        return personList.iterator();
     }
 }

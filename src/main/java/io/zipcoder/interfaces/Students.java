@@ -1,21 +1,21 @@
 package io.zipcoder.interfaces;
 
-import java.util.ArrayList;
+public final class Students extends People<Student> {
 
-public final class Students extends People {
-
-    private final ArrayList<Student> INSTANCE;
+    private static final Students INSTANCE = new Students();
 
     private Students() {
-        INSTANCE = new ArrayList<Student>();
-        INSTANCE.add(new Student(123456l));
-        INSTANCE.add(new Student(234567l));
-        INSTANCE.add(new Student(345678l));
-        INSTANCE.add(new Student(456789l));
-        INSTANCE.add(new Student(567890l));
+        String[] studentNames = {"Eleanor", "Kyle", "Kristina", "David", "Leah"};
+        for (int id = 0; id < studentNames.length; id++) {
+            String studentName = studentNames[id];
+            Student student = new Student(id);
+            student.setName(studentName);
+            super.add(student);
+        }
     }
 
-    public ArrayList<Student> getINSTANCE() {
+    public static Students getInstance() {
         return INSTANCE;
     }
+
 }

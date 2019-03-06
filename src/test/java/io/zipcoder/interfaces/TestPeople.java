@@ -56,4 +56,19 @@ public class TestPeople {
         // Then
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void getArray() {
+        // Given
+        People people = new People(new ArrayList<Person>());
+        Person expected = new Person(2);
+        people.add(expected);
+
+        // When
+        Person[] persons = people.getArray();
+        Person actual = persons[0];
+
+        // Then
+        Assert.assertEquals(expected, actual);
+    }
 }
