@@ -1,6 +1,7 @@
 package io.zipcoder.interfaces;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -8,10 +9,13 @@ import java.util.List;
 
 public class TestInstructors {
 
+    @Before
+    public void setup() {
+        Educator.values();
+    }
+
     @Test
     public void instructorsTest() {
-        Educator.values();
-
         // Given
         List<String> expectedInstructorNames = Arrays.asList("LEON", "FROILAN", "KRIS", "WILHEM", "NHU");
 
@@ -21,12 +25,4 @@ public class TestInstructors {
         }
     }
 
-    @Test
-    public void getInstructorsArrayTest() {
-        Educator.values();
-
-        for (Person instructor: Instructors.getInstance()) {
-            System.out.println(instructor.getName());
-        }
-    }
 }
