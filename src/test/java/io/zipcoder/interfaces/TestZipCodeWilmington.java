@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 public class TestZipCodeWilmington {
 
-    @Before
-    public void setup() {
-        Educator.values();
-    }
+//    @Before
+//    public void setup() {
+//        Educator.values();
+//    }
 
     @Test
     public void hostLectureTest() {
@@ -26,6 +26,7 @@ public class TestZipCodeWilmington {
         // When
         ZipCodeWilmington.hostLecture(ZipCodeWilmington.getInstructors().getArray()[0], 2.5);
         ArrayList<Double> actual = new ArrayList<Double>();
+
         // Then
         for (Student student: ZipCodeWilmington.getStudents()) {
             Assert.assertTrue(expected.contains(student.getTotalStudyTime()));

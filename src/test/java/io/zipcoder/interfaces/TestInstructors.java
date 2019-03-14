@@ -9,10 +9,10 @@ import java.util.List;
 
 public class TestInstructors {
 
-    @Before
-    public void setup() {
-        Educator.values();
-    }
+//    @Before
+//    public void setup() {
+//        Educator.values();
+//    }
 
     @Test
     public void instructorsTest() {

@@ -15,16 +15,16 @@ public class TestPeople {
         long expected2Id = 2l;
         Person expected1 = new Person(expected1Id);
         Person expected2 = new Person(expected2Id);
+        Assert.assertFalse(people.contains(expected1));
+        Assert.assertFalse(people.contains(expected2));
 
         // When
         people.add(expected1);
         people.add(expected2);
-        Person actual1 = people.findById(expected1Id);
-        Person actual2 = people.findById(expected2Id);
 
         // Then
-        Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
+        Assert.assertTrue(people.contains(expected1));
+        Assert.assertTrue(people.contains(expected2));
     }
 
     @Test
@@ -40,6 +40,41 @@ public class TestPeople {
 
         // Then
         Assert.assertNull(people.findById(idToRemove));
+    }
+
+    @Test
+    public void countTest() {
+        // Given
+        People people = new People();
+        int expected = 10;
+
+        // When
+        for (long l = 0l; l < expected; l++) {
+            people.add(new Person(l));
+        }
+        int actual = people.getCount();
+
+        // Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getArrayTest() {
+        // Given
+        People people = new People();
+        Person person1 = new Person(0);
+        Person person2 = new Person(0);
+        Person[] expected = new Person[] {person1, person2};
+
+        // When
+        people.add(person1);
+        people.add(person2);
+        Person[] actual = people.getArray();
+
+        // Then
+        for (int i = 0; i < expected.length; i++) {
+            Assert.assertEquals(expected[i], actual[i]);
+        }
     }
 
     @Test

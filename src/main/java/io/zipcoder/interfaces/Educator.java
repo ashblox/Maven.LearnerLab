@@ -18,7 +18,7 @@ public enum Educator implements Teacher {
 
     public void teach(Learner learner, double numberOfHours) {
         instructor.teach(learner, numberOfHours);
-        timeWorked = timeWorked + numberOfHours;
+        timeWorked += numberOfHours;
     }
 
     public void lecture(Learner[] learners, double numberOfHours) {

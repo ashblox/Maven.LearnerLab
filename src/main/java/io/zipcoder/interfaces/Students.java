@@ -6,9 +6,9 @@ public final class Students extends People<Student> {
 
     private Students() {
         String[] studentNames = {"Eleanor", "Kyle", "Kristina", "David", "Leah"};
-        for (int id = 0; id < studentNames.length; id++) {
+        for (Integer id = 0; id < studentNames.length; id++) {
             String studentName = studentNames[id];
-            Student student = new Student(id);
+            Student student = new Student(id.longValue());
             student.setName(studentName);
             super.add(student);
         }

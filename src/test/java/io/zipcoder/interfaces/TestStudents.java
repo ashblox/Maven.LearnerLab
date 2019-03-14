@@ -16,7 +16,18 @@ public class TestStudents {
             // then
             Assert.assertTrue(expectedStudentNames.contains(student.getName()));
         }
-    }
 
+//        The above is better. Since Students extends People and people has a personList, then Students has a personList too
+//
+//        List<String> expectedStudentNames = Arrays.asList("Eleanor", "Kyle", "Kristina", "David", "Leah");
+//        Student[] students = (Students.getInstance()).getArray();
+//
+//        Assert.assertTrue(students.length > 0);
+//
+//        for (Person student : students) {
+//            // then
+//            Assert.assertTrue(expectedStudentNames.contains(student.getName()));
+
+    }
 
 }

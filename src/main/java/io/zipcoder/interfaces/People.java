@@ -35,15 +35,15 @@ public class People<E extends Person> implements Iterable<E> {
     }
 
     public void remove(long ID) {
-        for (E person: personList) {
-            if (person.getID() == ID) {
-                personList.remove(person);
-            }
-        }
+        personList.remove(findById(ID));
     }
 
     public int getCount() {
         return personList.size();
+    }
+
+    public boolean contains(E person) {
+        return personList.contains(person);
     }
 
     public E[] getArray() {
